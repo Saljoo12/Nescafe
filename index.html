@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffershop | The Art of Dark Roast</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <h1 class="glitch" data-text="COFFERSHOP">COFFERSHOP</h1>
+            <p>Mengekstraksi Cita Rasa...</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+    </div>
+
+    <header id="navbar">
+        <div class="logo">COFFER<span>SHOP</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Signature Beans</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="video-container">
+            <video autoplay loop muted playsinline id="bg-video">
+                <source src="assets/vid/hero-coffee.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h2 class="subtitle">Bukan Sekadar Kedai Kopi</h2>
+            <h1 class="title-3d">LIQUID <br><span class="text-gradient">GOLD</span></h1>
+            <button class="btn-glow" onclick="scrollToMenu()"><span>EKSPLORASI RASA</span></button>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        
+        <div class="section-header">
+            <h2>Crafted <span>Menu</span></h2>
+            <p>Karya seni dalam bentuk cair. Dipanggang lambat, diseduh sempurna.</p>
+        </div>
+
+        <div class="card-container">
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 1.jpg" alt="Lumina Roast" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Lumina Roast</h3>
+                    <p>Biji kopi Ethiopian Yirgacheffe dengan floral notes dan sentuhan citrus yang cerah.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 45K</span>
+                        <button class="btn-add" onclick="addToCart('Lumina Roast', 45000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Obsidian Blend" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Obsidian Blend</h3>
+                    <p>Signature dark roast kami. Bodi tebal dengan notes dark chocolate dan karamel panggang.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 55K</span>
+                        <button class="btn-add" onclick="addToCart('Obsidian Blend', 55000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 3.jpg" alt="Aero-Nitro Brew" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Aero-Nitro Brew</h3>
+                    <p>Cold brew 24 jam yang diinjeksi nitrogen murni. Lembut bagai sutra tanpa rasa pahit.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 65K</span>
+                        <button class="btn-add" onclick="addToCart('Aero-Nitro Brew', 65000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 4.jpg" alt="Amber Sea-Salt Latte" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Amber Sea-Salt Latte</h3>
+                    <p>Double ristretto dengan susu oat, sirup karamel house-made, dan taburan sea-salt Himalaya.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 58K</span>
+                        <button class="btn-add" onclick="addToCart('Amber Sea-Salt Latte', 58000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="V60 Panama Geisha" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>V60 Panama Geisha</h3>
+                    <p>Manual brew eksklusif. Menghadirkan profil rasa teh melati, madu, dan bergamot yang sangat langka.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 85K</span>
+                        <button class="btn-add" onclick="addToCart('V60 Panama Geisha', 85000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 6.jpg" alt="Midnight Espresso Tonic" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Midnight Espresso Tonic</h3>
+                    <p>Coffee mocktail menyegarkan. Ekstraksi espresso panas dituangkan di atas premium tonic water dan es batu.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 48K</span>
+                        <button class="btn-add" onclick="addToCart('Midnight Espresso Tonic', 48000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 7.jpg" alt="Emerald Kyoto Matcha" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Emerald Kyoto Matcha</h3>
+                    <p>Alternatif non-kopi. Ceremonial grade matcha dari Uji, Kyoto, dikocok tradisional dengan bamboo whisk.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 52K</span>
+                        <button class="btn-add" onclick="addToCart('Emerald Kyoto Matcha', 52000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" onmousemove="tiltEffect(event, this)" onmouseleave="resetTilt(this)">
+                <div class="card-img-wrapper">
+                    <img src="assets/img/kopi 8.jpg" alt="Spiced Cascara Tea" class="product-img">
+                </div>
+                <div class="card-info">
+                    <h3>Spiced Cascara Tea</h3>
+                    <p>Teh dari kulit ceri kopi kering, diseduh dengan kayu manis dan madu hutan. Manis, fruity, dan kaya antioksidan.</p>
+                    <div class="card-bottom">
+                        <span class="price">Rp 40K</span>
+                        <button class="btn-add" onclick="addToCart('Spiced Cascara Tea', 40000)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>Pesanan Anda</h2>
+            <button class="close-drawer" onclick="toggleCart()"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <strong id="cart-total" class="text-gradient">Rp 0</strong>
+            </div>
+            <button class="btn-checkout" id="btn-checkout" onclick="processCheckout()">CHECKOUT</button>
+        </div>
+    </aside>
+
+    <div id="receipt-modal" class="modal">
+        <div class="receipt-paper">
+            <div class="receipt-header">
+                <i class="fa-solid fa-seedling text-gradient" style="font-size: 3rem;"></i>
+                <h2>PESANAN DITERIMA</h2>
+                <p>Coffershop Lounge</p>
+            </div>
+            <div class="receipt-body">
+                <p class="barcode">|||||| |||| | |||||| || |</p>
+                <div class="queue-box">
+                    <span>NOMOR MEJA / ANTREAN</span>
+                    <h1 id="queue-number">--</h1>
+                </div>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Barista kami sedang meracik keajaiban untuk Anda. Silakan bersantai.</p>
+            </div>
+            <button class="btn-glow" style="width: 100%; margin-top: 20px; padding: 10px;" onclick="closeReceipt()">KEMBALI</button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
